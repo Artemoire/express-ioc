@@ -1,0 +1,13 @@
+{
+  "name": "@types/vendor",
+  "version": "0.0.1",
+  "description": "TypeScript definitions for domain",
+  "main": "",
+  "scripts": {},
+  "keywords": [],
+  "types": "index.d.ts",
+  "author": "Dejan Tot",
+  "license": "ISC",
+  "dependencies": {},
+  "private": true
+}
