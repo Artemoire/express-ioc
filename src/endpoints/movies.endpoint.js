@@ -16,7 +16,7 @@ const MOVIES = [
 
 class MoviesEndpoint {
 
-    async getMovies() {
+    async all() {
         return MOVIES;
     }
 
@@ -24,5 +24,5 @@ class MoviesEndpoint {
 
 module.exports = {
     type: MoviesEndpoint,
-    resolve: (resolver) => new MoviesEndpoint()
+    provider: (serloc) => new MoviesEndpoint()
 }

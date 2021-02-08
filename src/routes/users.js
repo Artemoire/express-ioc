@@ -1,11 +1,11 @@
-const appContext = require('../app.context');
+const appSerloc = require('../app.serloc');
 const express = require('express');
 const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  const ctx = appContext(req);  
-  const userService = ctx.resolve('user.service', 'request');
+  const serloc = appSerloc(req, res, next);
+  const userService = serloc.locate('user.service');
 
   const user = userService.get();
   if (user) res.send("Welcome " + user.name);
@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  const ctx = appContext(req);  
-  const userService = ctx.resolve('user.service', 'request');
+  const serloc = appSerloc(req, res, next);  
+  const userService = serloc.locate('user.service');
 
   if (!req.query.first_name) return res.send("Missing first_name parameter");
   if (!req.query.last_name) return res.send("Missing last_name parameter");

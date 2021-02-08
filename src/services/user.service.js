@@ -15,13 +15,13 @@ class UserService {
     get() {
         return this.req.session.user;
     }
-    
+
 }
 
 module.exports = {
     type: UserService,
-    resolve: (resolver) => {
-        const req = resolver('req', 'request');
+    provider: (serloc) => {
+        const req = serloc('req');
         return new UserService(req);
     }
 }
